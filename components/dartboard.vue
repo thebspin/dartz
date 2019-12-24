@@ -5,8 +5,8 @@
     version="1.1"
     x="0"
     y="0"
-    width="787"
-    height="774"
+    width="790"
+    height="810"
     xml:space="preserve"
   >
     <g id="areas" @click="dartBoardClick">
@@ -306,13 +306,13 @@
           d="M258.799 536.214l9.639-10.177c-.757-.733-1.517-1.464-2.264-2.211-12.561-12.56-23.173-26.609-31.721-41.926l-12.314 6.701c9.188 16.5 20.6 31.6 34.1 45.1.861.899 1.661 1.699 2.561 2.513z"
         />
       </g>
-      <g id="bull">
+      <g id="Bull">
         <path
-          id="Outer"
+          id="bull"
           fill="#4F9962"
           d="M432.438 389c0 17.087-13.852 30.938-30.938 30.938S370.562 406.1 370.6 389s13.852-30.938 30.938-30.938S432.438 371.9 432.4 389zM401.5 372.602c-9.057 0-16.398 7.342-16.398 16.4s7.342 16.4 16.4 16.398 16.398-7.342 16.398-16.398-7.343-16.402-16.4-16.4z"
         />
-        <circle id="Bull" fill="#ED3737" cx="401.5" cy="389" r="13.7" />
+        <circle id="bullseye" fill="#ED3737" cx="401.5" cy="389" r="13.7" />
       </g>
     </g>
     <g id="score">
@@ -328,13 +328,18 @@
 export default {
   methods: {
     dartBoardClick(event) {
-      alert('Clicked ' + event.srcElement.id)
+      alert("Clicked " + event.srcElement.id)
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+svg#dartboard {
+  transform: scale(1.2);
+  margin-top: 30px;
+}
+
 #areas path:hover,
 #areas circle:hover {
   opacity: 0.6;

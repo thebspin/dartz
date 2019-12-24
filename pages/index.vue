@@ -1,14 +1,60 @@
 <template>
-  <div class="container">
-    <dartboard />
+  <div class="flex h-screen">
+    <div class="flex w-1/5 bg-gray-800 items-start content-start flex-col p-3">
+      <score-list
+        class="flex items-center justify-center flex-col flex-auto w-full"
+      />
+      <div class="actions w-full flex justify-between">
+        <div class="left">
+          <button @click="btnSettings" class="focus:outline-none">
+            <span class="mdi mdi-36px mdi-cogs text-white" />
+          </button>
+          <button @click="btnMicrophone" class="focus:outline-none">
+            <span
+              v-if="microphone"
+              class="mdi mdi-36px mdi-microphone-off text-white"
+            />
+            <span v-else class="mdi mdi-36px mdi-microphone text-white" />
+          </button>
+        </div>
+        <div class="right">
+          <button
+            @click="btnUndo"
+            class="mt-3 py-1 px-3 rounded bg-red-600 text-white"
+          >
+            Undo
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex w-4/5 bg-gray-700 items-start content-start">
+      <dartboard class="mx-auto pt-12" />
+    </div>
   </div>
 </template>
 
 <script>
-import Dartboard from '~/components/dartboard'
+import Dartboard from "~/components/Dartboard"
+import ScoreList from "~/components/ScoreList"
 
 export default {
-  components: { Dartboard }
+  components: { Dartboard, ScoreList },
+  data() {
+    return {
+      microphone: true
+    }
+  },
+  methods: {
+    btnSettings() {
+      alert("Settings")
+    },
+    btnMicrophone() {
+      this.microphone = !this.microphone
+    },
+    btnUndo() {
+      alert("Undo")
+    }
+  }
 }
 </script>
 
@@ -28,8 +74,8 @@ export default {
 }
 
 .title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;
