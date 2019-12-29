@@ -46,8 +46,14 @@ export default {
     "@nuxtjs/pwa",
     // Doc: https://github.com/nuxt-community/dotenv-module
     "@nuxtjs/dotenv",
-    "nuxtjs-mdi-font"
+    "nuxtjs-mdi-font",
+    "nuxt-purgecss"
   ],
+  webfontloader: {
+    google: {
+      families: ["Lato:400,700"] // Loads Lato font with weights 400 and 700
+    }
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -60,6 +66,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
+    extractCSS: true,
     extend(config, ctx) {}
   }
 }
