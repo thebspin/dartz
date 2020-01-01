@@ -39,8 +39,9 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex"
 import Dartboard from "~/components/Dartboard"
-import ScoreList from "~/components/ScoreListCricket"
+import ScoreList from "~/components/ScoreListDart"
 
 export default {
   components: { Dartboard, ScoreList },
@@ -49,9 +50,16 @@ export default {
       microphone: true
     }
   },
+  computed: {
+    ...mapState({
+      playerTurn: (state) => state.darts.playerTurn
+    })
+  },
   methods: {
+    ...mapActions({ addThrow: "darts/addThrow" }),
     btnSettings() {
-      alert("Settings")
+      // alert("Settings")
+      this.addThrow()
     },
     btnMicrophone() {
       this.microphone = !this.microphone
