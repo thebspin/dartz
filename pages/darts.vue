@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="flex w-4/5 bg-gray-700 items-start content-start">
-      <dartboard class="mx-auto pt-12" />
+      <dartboard @score="score" class="mx-auto pt-12" />
     </div>
   </div>
 </template>
@@ -58,6 +58,9 @@ export default {
   methods: {
     ...mapActions({ addThrow: "darts/addThrow" }),
     btnSettings() {
+      console.log("setting")
+    },
+    score(amount) {
       // alert("Settings")
       this.addThrow()
     },

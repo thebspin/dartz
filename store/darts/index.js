@@ -1,6 +1,7 @@
 export const state = () => ({
   numOfThrows: 0,
-  playerTurn: 0
+  playerTurn: 0,
+  playersInfo: [{ name: "Dennis" }, { name: "Piet" }]
 })
 
 export const mutations = {

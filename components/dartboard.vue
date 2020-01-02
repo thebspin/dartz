@@ -328,7 +328,8 @@
 export default {
   methods: {
     dartBoardClick(event) {
-      alert("Clicked " + event.srcElement.id)
+      this.$emit("score", event.srcElement.id)
+      // alert("Clicked " + event.srcElement.id)
     }
   }
 }
