@@ -17,13 +17,15 @@
         <span class="text-center font-bold">{{ value }}</span>
       </div>
       <div class="w-1/5 mx-2 inline-flex">
-        <span class="text-right w-full text-gray-200">180</span>
+        <span class="text-right w-full text-gray-200">{{ totalThrow }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { throwToScore } from "@/utils/dartScore"
+
 export default {
   props: {
     playerInfo: {
@@ -33,6 +35,15 @@ export default {
           name: "Unknown"
         }
       }
+    }
+  },
+  computed: {
+    totalThrow() {
+      let total = 0
+      for (let i = 0; i < this.playerInfo.latestThrows.length; i++) {
+        total += parseInt(throwToScore(this.playerInfo.latestThrows[i]))
+      }
+      return total
     }
   }
 }

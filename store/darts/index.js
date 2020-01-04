@@ -13,7 +13,8 @@ export const state = () => ({
 export const mutations = {
   addThrow(state, amount) {
     state.playersInfo[state.playerTurn].scoreLeft -= throwToScore(amount)
-
+    state.playersInfo[state.playerTurn].latestThrows.splice(2, 1)
+    state.playersInfo[state.playerTurn].latestThrows.unshift(amount)
     state.numOfThrows++
     if (state.numOfThrows % 3 === 0) {
       if (state.playerTurn === 0) {
@@ -21,6 +22,7 @@ export const mutations = {
       } else {
         state.playerTurn = 0
       }
+      state.playersInfo[state.playerTurn].latestThrows = ["", "", ""]
     }
   }
 }
