@@ -1,8 +1,16 @@
 <template>
   <div class="flex bg-gray-700">
     <div class="container">
-      <div>Test</div>
-      <div>Test</div>
+      <nuxt-link to="/darts">
+        <div class="game-button">
+          Darts
+        </div>
+      </nuxt-link>
+      <nuxt-link to="/cricket">
+        <div class="game-button">
+          Cricket
+        </div>
+      </nuxt-link>
     </div>
   </div>
 </template>
@@ -17,6 +25,14 @@ export default {}
   @apply min-h-screen flex justify-center items-center text-center mx-auto;
 }
 */
+.game-button {
+  @apply rounded border-4 border-gray-500 p-32 m-4 text-gray-500 text-6xl;
+}
+
+.game-button:hover {
+  @apply border-gray-100 text-gray-100;
+}
+
 .container {
   margin: 0 auto;
   min-height: 100vh;

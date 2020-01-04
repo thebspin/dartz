@@ -2,10 +2,10 @@
   <div class="w-full flex-none">
     <div class="player flex justify-between mb-2">
       <div class="player-name inline-flex text-gray-200 font-bold text-2xl">
-        Dennis
+        {{ playerInfo.name }}
       </div>
       <div class="player-score inline-flex text-gray-200 font-bold text-xl">
-        501
+        {{ playerInfo.scoreLeft }}
       </div>
     </div>
     <div class="player-throws mt-1">
@@ -24,6 +24,21 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    playerInfo: {
+      type: Object,
+      default: () => {
+        return {
+          name: "Unknown"
+        }
+      }
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .text-center {
