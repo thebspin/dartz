@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex"
+import { mapGetters } from "vuex"
 
 import ScoreListItem from "~/components/ScoreListItemDart"
 
@@ -18,9 +18,7 @@ export default {
     ScoreListItem
   },
   computed: {
-    ...mapState({
-      playersInfo: (state) => state.darts.playersInfo
-    })
+    ...mapGetters({ playersInfo: "darts/getPlayersInfo" })
   }
 }
 </script>

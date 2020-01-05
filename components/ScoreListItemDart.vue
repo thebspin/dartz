@@ -24,25 +24,23 @@
 </template>
 
 <script>
-import { throwToScore } from "@/utils/dartScore"
+// import { throwToScore } from "@/utils/dartScore"
 
 export default {
   props: {
     playerInfo: {
-      type: Object,
-      default: () => {
-        return {
-          name: "Unknown"
-        }
+      type: Array,
+      default() {
+        return []
       }
     }
   },
   computed: {
     totalThrow() {
-      let total = 0
-      for (let i = 0; i < this.playerInfo.latestThrows.length; i++) {
-        total += parseInt(throwToScore(this.playerInfo.latestThrows[i]))
-      }
+      const total = 0
+      // for (let i = 0; i < this.playerInfo.latestThrows.length; i++) {
+      //   total += parseInt(throwToScore(this.playerInfo.latestThrows[i]))
+      // }
       return total
     }
   }
